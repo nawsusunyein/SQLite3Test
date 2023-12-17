@@ -1,0 +1,60 @@
+{
+    "coupon:loop": [
+        {
+            "coupon_title": "100円引きのコピーtestのコピー",
+            "coupon_body": "100円引きのコピーtestのコピー",
+            "coupon_id": "cp16",
+            "shop_id": "2",
+            "coupon_conditions": "商店街全店舗",
+            "coupon_start_date": "2023-10-23",
+            "coupon_end_date": "9999-12-31"
+        },
+        {
+            "coupon_title": "100円引きのコピーtest",
+            "coupon_body": "100円引きのコピーtest",
+            "coupon_id": "cp15",
+            "shop_id": "2",
+            "coupon_conditions": "商店街全店舗",
+            "coupon_start_date": "2023-10-23",
+            "coupon_end_date": "9999-12-31"
+        },
+        {
+            "coupon_title": "100円引き",
+            "coupon_body": "100円引き",
+            "coupon_id": "cp10",
+            "shop_id": "all_shops",
+            "coupon_conditions": "商店街全店舗",
+            "coupon_start_date": "2023-10-23",
+            "coupon_end_date": "9999-12-31"
+        },
+        {
+            "coupon_title": "ファッション商品5％OFF",
+            "coupon_body": "ファッション商品5％OFF",
+            "coupon_id": "cp9",
+            "shop_id": "2",
+            "coupon_conditions":"条件文章
+ああああああああ",
+            "coupon_start_date": "2023-10-23",
+            "coupon_end_date": "9999-12-31"
+        },
+        {
+            "coupon_title": "test",
+            "coupon_body": "aaaaaa",
+            "coupon_id": "coupon-7",
+            "shop_id": "1",
+            "coupon_conditions": "bbbbb",
+            "coupon_start_date": "2023-10-20",
+            "coupon_end_date": "9999-12-31"
+        },
+        {
+            "coupon_title": "全品50％OFF",
+            "coupon_body": "全品50%OFF",
+            "coupon_id": "6",
+            "shop_id": "1",
+            "coupon_conditions":"利用条件文章
+あああああ",
+            "coupon_start_date": "2023-10-20",
+            "coupon_end_date": "9999-12-31"
+        },
+    ]
+}
