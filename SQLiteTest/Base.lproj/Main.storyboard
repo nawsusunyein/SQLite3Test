@@ -17,24 +17,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKM-iD-NiD">
-                                <rect key="frame" x="175.66666666666666" y="415.66666666666669" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RRj-br-C0U">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Vjv-CJ-p0I"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cbQ-8s-9N9"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iKM-iD-NiD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Cp4-Sh-OIM"/>
-                            <constraint firstItem="iKM-iD-NiD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IRm-q0-erN"/>
+                            <constraint firstAttribute="bottom" secondItem="RRj-br-C0U" secondAttribute="bottom" id="D8X-BD-Dh9"/>
+                            <constraint firstItem="RRj-br-C0U" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Sak-D9-Nsr"/>
+                            <constraint firstItem="RRj-br-C0U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dNz-du-SdK"/>
+                            <constraint firstItem="RRj-br-C0U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nar-nm-cBg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="itemTableView" destination="RRj-br-C0U" id="Xcv-RI-B9R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21" y="4"/>
+            <point key="canvasLocation" x="20.610687022900763" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

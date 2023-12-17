@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var itemTableView : UITableView!
+    
+    var isLoading = false
     var blogList : [Blog] = []
     var BLOG = "blog"
     var TITLE = "title"
@@ -41,12 +44,22 @@ class ViewController: UIViewController {
         let student4 = Students(name: "gya", age: 12, city: "Yangon")
         let student5 = Students(name: "mya", age: 11, city: "Yangon")
         let student6 = Students(name: "hinn", age: 11, city: "Yangon")
+        let student7 = Students(name: "mg mg 1", age: 12, city: "Yangon")
+        let student8 = Students(name: "hal 1", age: 13, city: "Yangon")
+        let student9 = Students(name: "tha 1 ", age: 14, city: "Yangon")
+        let student10 = Students(name: "gya 1", age: 12, city: "Yangon")
+        
         students.append(student1)
         students.append(student2)
         students.append(student3)
         students.append(student4)
         students.append(student5)
         students.append(student6)
+        students.append(student7)
+        students.append(student8)
+        students.append(student9)
+        students.append(student10)
+        
         
         let studentsByAge = Dictionary(grouping: students, by: {$0.age})
         print("test : \(studentsByAge)")
@@ -61,8 +74,14 @@ class ViewController: UIViewController {
         }
         
         print("group by age : \(objectArray[0].studentId)")
+        registerNib()
     }
 
+    func registerNib() {
+        itemTableView.register(UINib(nibName: "ItemTableViewCell", bundle: nil), forCellReuseIdentifier: "itemCell")
+        itemTableView.register(UINib(nibName: "LoadingTableViewCell", bundle: nil), forCellReuseIdentifier: "loadingCell")
+        
+    }
 
     func createMockBlog() {
         for i in 0..<100 {
@@ -188,4 +207,74 @@ struct Students  {
 struct Objects {
     let studentId : Int
     let students : [Students]
+}
+
+extension ViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(section == 0) {
+            return students.count
+        } else if(section == 1) {
+            return 1
+        } else {
+            return 0
+        }
+        
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if(indexPath.section == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemTableViewCell
+            cell.labelName.text = students[indexPath.row].name
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for : indexPath) as! LoadingTableViewCell
+            cell.activitorIndicator.startAnimating()
+            return cell
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.section == 0) {
+            return 65
+        } else {
+            return 45
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == students.count - 10, !isLoading {
+                loadMoreData()
+        }
+    }
+    
+    func loadMoreData() {
+            if !self.isLoading {
+                self.isLoading = true
+                DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) { // Remove the 1-second delay if you want to load the data without waiting
+                    // Download more data here
+                    DispatchQueue.main.async {
+                        let student11 = Students(name: "mg mg", age: 12, city: "Yangon")
+                        let student12 = Students(name: "hal", age: 13, city: "Yangon")
+                        let student13 = Students(name: "tha", age: 14, city: "Yangon")
+                        let student14 = Students(name: "gya", age: 12, city: "Yangon")
+                        let student15 = Students(name: "mya", age: 11, city: "Yangon")
+                        self.students.append(student11)
+                        self.students.append(student12)
+                        self.students.append(student13)
+                        self.students.append(student14)
+                        self.students.append(student15)
+                        self.itemTableView.reloadData()
+                        self.isLoading = false
+                    }
+                }
+            }
+        }
+    
 }
